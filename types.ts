@@ -1,3 +1,4 @@
+
 export interface TranscriptionItem {
   id: string;
   source: 'user' | 'model';
@@ -30,7 +31,32 @@ export interface PCMData {
 }
 
 // Actions that can be triggered by the Voice Bot
-export type ActionType = 'parcel_send' | 'letter_send' | 'payment' | 'parcel_track' | 'video_consultation';
+export type ActionType = 
+  | 'parcel_send' 
+  | 'letter_send' 
+  | 'payment' 
+  | 'parcel_track' 
+  | 'video_consultation'
+  // Workflow Step 1: Destination
+  | 'select_destination_ch'
+  | 'select_destination_abroad'
+  // Workflow Step 2: Address Check
+  | 'address_exists_yes'
+  | 'address_exists_no'
+  // Workflow Step 3: Address Input
+  | 'submit_address'
+  // Workflow Step 4: Options
+  | 'select_economy'
+  | 'select_priority'
+  | 'toggle_signature'
+  | 'confirm_details'
+  // Workflow Step 5: Payment
+  | 'confirm_payment'
+  // Workflow Step 6: Finish
+  | 'finish_process'
+  // Navigation
+  | 'nav_back'
+  | 'nav_next';
 
 export const AVAILABLE_ACTIONS: {id: ActionType, label: string}[] = [
   { id: 'parcel_send', label: 'Paket aufgeben' },

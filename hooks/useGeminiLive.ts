@@ -1,3 +1,4 @@
+
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { GoogleGenAI, LiveServerMessage, Modality, FunctionDeclaration, Type } from '@google/genai';
 import { ConnectionState, TranscriptionItem, VoiceName, ActionType } from '../types';
@@ -12,7 +13,26 @@ const actionToolDeclaration: FunctionDeclaration = {
     properties: {
       action_id: {
         type: Type.STRING,
-        enum: ['parcel_send', 'letter_send', 'payment', 'parcel_track', 'video_consultation'],
+        enum: [
+          'parcel_send', 
+          'letter_send', 
+          'payment', 
+          'parcel_track', 
+          'video_consultation',
+          'select_destination_ch',
+          'select_destination_abroad',
+          'address_exists_yes',
+          'address_exists_no',
+          'submit_address',
+          'select_economy',
+          'select_priority',
+          'toggle_signature',
+          'confirm_details',
+          'confirm_payment',
+          'finish_process',
+          'nav_back',
+          'nav_next'
+        ],
         description: 'The specific ID of the action/button to trigger.'
       }
     },
