@@ -4,7 +4,7 @@ import {
   X, Settings, Pause, Box, Mail, Search, Video, Globe, Accessibility, 
   Bot, Sparkles, ChevronRight, Check, AlertCircle, ChevronLeft, 
   ArrowRightFromLine, Scale, User, Truck, PenTool, MapPin, Package, 
-  CreditCard
+  CreditCard, Clock
 } from 'lucide-react';
 import { useGeminiLive } from './hooks/useGeminiLive';
 import AudioVisualizer from './components/AudioVisualizer';
@@ -47,6 +47,8 @@ const EN_TRANSLATIONS = {
     cardSelfServiceDesc: "Handle your postal business directly here in self-service.",
     cardVideoTitle: "Video Consultation",
     cardVideoDesc: "Personal consultation via video call.",
+    availableAgents: "Available Agents",
+    waitTime: "Expected wait time: 3 min.",
     actions: {
       parcel_send: "Send a parcel",
       letter_send: "Send a letter",
@@ -131,6 +133,8 @@ const TRANSLATIONS = {
     cardSelfServiceDesc: "Erledigen Sie Ihre Postgeschäfte direkt hier im Self-Service.",
     cardVideoTitle: "Video-Beratung",
     cardVideoDesc: "Persönliche Beratung per Video-Call mit unseren Expertinnen und Experten.",
+    availableAgents: "Verfügbare Berater",
+    waitTime: "Wartezeit: ca. 3 Min.",
     actions: {
       parcel_send: "Paket aufgeben",
       letter_send: "Brief versenden",
@@ -213,6 +217,8 @@ const TRANSLATIONS = {
     cardSelfServiceDesc: "Gérez vos affaires postales ici même en libre-service.",
     cardVideoTitle: "Conseil Vidéo",
     cardVideoDesc: "Conseil personnel par appel vidéo.",
+    availableAgents: "Conseillers disponibles",
+    waitTime: "Attente estimée : 3 min.",
     actions: {
       parcel_send: "Envoyer un colis",
       letter_send: "Envoyer une lettre",
@@ -292,18 +298,24 @@ const TRANSLATIONS = {
   it: { 
       ...EN_TRANSLATIONS,
       heroTitle: "Benvenuti", 
+      availableAgents: "Consulenti disponibili",
+      waitTime: "Tempo di attesa: 3 min.",
       footerLang: "Lingua", 
       footerAccess: "Accessibilità"
   },
   es: { 
       ...EN_TRANSLATIONS,
       heroTitle: "Bienvenido", 
+      availableAgents: "Agentes disponibles",
+      waitTime: "Tiempo de espera: 3 min.",
       footerLang: "Idioma", 
       footerAccess: "Accesibilidad"
   },
   pt: { 
       ...EN_TRANSLATIONS,
       heroTitle: "Bem-vindo", 
+      availableAgents: "Agentes disponíveis",
+      waitTime: "Tempo de espera: 3 min.",
       footerLang: "Língua", 
       footerAccess: "Acessibilidade"
   }
@@ -1094,12 +1106,18 @@ const App: React.FC = () => {
                            <h2 className="text-3xl font-bold text-[#1D2533] mb-4">{t.cardVideoTitle}</h2>
                            <p className="text-zinc-500 mb-10 text-base leading-relaxed">{t.cardVideoDesc}</p>
                            <div className="mt-auto relative z-10">
-                               <div className="bg-zinc-50 rounded-2xl p-6 mb-6 border border-zinc-100">
-                                   <div className="flex -space-x-3 mb-4">
-                                       {[1,2,3].map(i => <div key={i} className={`w-10 h-10 rounded-full border-2 border-white bg-zinc-200 flex items-center justify-center text-xs font-bold text-zinc-500`}>{i}</div>)}
-                                       <div className="w-10 h-10 rounded-full border-2 border-white bg-[#1D2533] text-white flex items-center justify-center text-xs font-bold">+12</div>
+                               <div className="bg-zinc-50 rounded-2xl p-4 mb-3 border border-zinc-100 flex items-center justify-between">
+                                   <div className="flex -space-x-2">
+                                       {[1,2,3].map(i => <div key={i} className={`w-8 h-8 rounded-full border-2 border-white bg-zinc-200 flex items-center justify-center text-[10px] font-bold text-zinc-500`}>{i}</div>)}
+                                       <div className="w-8 h-8 rounded-full border-2 border-white bg-[#1D2533] text-white flex items-center justify-center text-[10px] font-bold">+12</div>
                                    </div>
-                                   <div className="text-sm font-medium text-zinc-500">Available Agents</div>
+                                   <div className="text-xs font-bold text-zinc-500 text-right leading-tight">{t.availableAgents}</div>
+                               </div>
+                               <div className="bg-zinc-50 rounded-2xl p-4 mb-6 border border-zinc-100 flex items-center justify-between">
+                                     <div className="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center text-zinc-500">
+                                        <Clock size={16} />
+                                     </div>
+                                     <div className="text-xs font-bold text-zinc-500 text-right leading-tight">{t.waitTime}</div>
                                </div>
                                <ActionButton id="video_consultation" icon={Video} label={t.actions.video_consultation} />
                            </div>
