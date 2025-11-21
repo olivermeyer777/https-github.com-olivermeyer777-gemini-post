@@ -123,7 +123,7 @@ const EN_TRANSLATIONS = {
       thankYou: "Thank you!",
       btnFinish: "Back to Home"
     }
-};
+  };
 
 const TRANSLATIONS = {
   de: {
@@ -297,7 +297,8 @@ const TRANSLATIONS = {
   en: EN_TRANSLATIONS,
   it: { 
       ...EN_TRANSLATIONS,
-      heroTitle: "Benvenuti", 
+      heroTitle: "Benvenuti",
+      heroSubtitle: "Sbrigate le vostre operazioni postali in modo semplice e veloce.",
       availableAgents: "Consulenti disponibili",
       waitTime: "Tempo di attesa: 3 min.",
       footerLang: "Lingua", 
@@ -305,7 +306,8 @@ const TRANSLATIONS = {
   },
   es: { 
       ...EN_TRANSLATIONS,
-      heroTitle: "Bienvenido", 
+      heroTitle: "Bienvenido",
+      heroSubtitle: "Realice sus gestiones postales de forma sencilla y rápida.",
       availableAgents: "Agentes disponibles",
       waitTime: "Tiempo de espera: 3 min.",
       footerLang: "Idioma", 
@@ -313,7 +315,8 @@ const TRANSLATIONS = {
   },
   pt: { 
       ...EN_TRANSLATIONS,
-      heroTitle: "Bem-vindo", 
+      heroTitle: "Bem-vindo",
+      heroSubtitle: "Trate dos seus assuntos postais de forma simples e rápida.",
       availableAgents: "Agentes disponíveis",
       waitTime: "Tempo de espera: 3 min.",
       footerLang: "Língua", 
